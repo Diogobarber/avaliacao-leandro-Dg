@@ -29,3 +29,23 @@ def salvar_livros(livros):
 
         escritor.writeheader()
         escritor.writerows(livros)
+
+        # Procura um livro pelo ISBN
+
+def buscar_por_isbn(livros, isbn):
+    for livro in livros:
+        if livro["isbn"].lower() == isbn.lower():
+            return livro
+
+    return None
+
+# Pede um texto e impede que o campo fique vazio
+
+def pedir_texto(mensagem):
+    while True:
+        texto = input(mensagem).strip()
+
+        if texto != "":
+            return texto
+
+        print("Este campo não pode ficar vazio.")
