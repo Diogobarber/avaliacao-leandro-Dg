@@ -30,7 +30,7 @@ def salvar_livros(livros):
         escritor.writeheader()
         escritor.writerows(livros)
 
-        # Procura um livro pelo ISBN
+# Procura um livro pelo ISBN
 
 def buscar_por_isbn(livros, isbn):
     for livro in livros:
@@ -49,3 +49,14 @@ def pedir_texto(mensagem):
             return texto
 
         print("Este campo não pode ficar vazio.")
+
+# Pede um ano válido
+
+def pedir_ano():
+    while True:
+        ano_digitado = input("Ano: ").strip()
+
+        if ano_digitado.isdigit():
+            return ano_digitado
+
+        print("Ano inválido. Digite apenas números.")
