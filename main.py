@@ -60,3 +60,32 @@ def pedir_ano():
             return ano_digitado
 
         print("Ano inválido. Digite apenas números.")
+
+# Cadastra um livro novo
+
+def cadastrar_livro(livros):
+    print("\n--- CADASTRAR LIVRO ---")
+
+    titulo = pedir_texto("Título: ")
+    autor = pedir_texto("Autor: ")
+    ano = pedir_ano()
+    isbn = pedir_texto("ISBN: ")
+
+    if buscar_por_isbn(livros, isbn) is not None:
+        print("Este ISBN já está cadastrado.")
+        return False
+
+    livro = {
+        "titulo": titulo,
+        "autor": autor,
+        "ano": ano,
+        "isbn": isbn,
+        "status": "disponivel"
+    }
+
+    livros.append(livro)
+    salvar_livros(livros)
+
+    print("Livro cadastrado com sucesso.")
+
+    return True    
