@@ -193,3 +193,47 @@ def buscar_livro(livros):
         print("Status:", livro["status"])
 
     print("------------------------------")
+
+# Exibe o menu principal
+
+def exibir_menu():
+    print("\n========== BIBLIOTECA ==========")
+    print("1 - Cadastrar livro")
+    print("2 - Emprestar livro")
+    print("3 - Devolver livro")
+    print("4 - Listar livros")
+    print("5 - Buscar livro")
+    print("0 - Sair")
+    print("================================")
+
+
+# Programa principal
+
+livros = carregar_livros()
+
+while True:
+    exibir_menu()
+
+    opcao = input("Escolha uma opção: ").strip()
+
+    if opcao == "1":
+        cadastrar_livro(livros)
+
+    elif opcao == "2":
+        emprestar_livro(livros)
+
+    elif opcao == "3":
+        devolver_livro(livros)
+
+    elif opcao == "4":
+        listar_livros(livros)
+
+    elif opcao == "5":
+        buscar_livro(livros)
+
+    elif opcao == "0":
+        print("Programa encerrado.")
+        break
+
+    else:
+        print("Opção inválida. Escolha uma opção do menu.")
